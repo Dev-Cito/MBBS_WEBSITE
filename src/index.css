@@ -1,0 +1,210 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Design tokens ─────────────────────────────────────────────── */
+:root {
+  --bg-primary:     #061543;              /* deep rich blue */
+  --bg-secondary:   #0D3B8C;             /* royal blue */
+  --bg-card:        rgba(45, 140, 255, 0.08);
+  --blue-primary:   #2D8CFF;
+  --blue-light:     #5AABFF;
+  --blue-dark:      #061543;
+  --blue-royal:     #0D3B8C;
+  --gold-400:       #D4AF37;
+  --gold-300:       #F0C84A;
+  --gold-dim:       #9A7A20;
+  --glass-bg:       rgba(255, 255, 255, 0.07);
+  --glass-border:   rgba(255, 255, 255, 0.11);
+  --glass-blur:     blur(20px);
+  --glass-shadow:   0 8px 32px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  --gold-glow:      0 0 40px rgba(212, 175, 55, 0.35);
+  --blue-glow:      0 0 50px rgba(45, 140, 255, 0.50);
+}
+
+/* ─── Base reset ─────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+/* ─── Custom scrollbar ───────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #050F38; }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #2D8CFF, #D4AF37);
+  border-radius: 99px;
+}
+
+/* ─── Golden 3D text ─────────────────────────────────────────────── */
+.golden-3d-text {
+  color: #D4AF37;
+  text-shadow:
+    0 1px 0 #c49b20,
+    0 2px 0 #a87c18,
+    0 3px 0 #8B6310,
+    0 4px 0 #74500c,
+    0 5px 0 #5e400a,
+    0 6px 8px rgba(0, 0, 0, 0.50),
+    0 0 80px rgba(212, 175, 55, 0.20);
+  letter-spacing: 0.04em;
+}
+
+/* ─── Gold gradient text ─────────────────────────────────────────── */
+.gold-text {
+  background: linear-gradient(135deg, #F5D060 0%, #D4AF37 40%, #9A7A20 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Blue gradient text ─────────────────────────────────────────── */
+.blue-text {
+  background: linear-gradient(135deg, #5AABFF 0%, #2D8CFF 60%, #1565E0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Glassmorphism ──────────────────────────────────────────────── */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
+
+.glass-blue {
+  background: rgba(45, 140, 255, 0.12);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(45, 140, 255, 0.28);
+  box-shadow: 0 4px 24px rgba(45, 140, 255, 0.12), inset 0 1px 0 rgba(90, 171, 255, 0.15);
+}
+
+.glass-gold {
+  background: rgba(212, 175, 55, 0.07);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(212, 175, 55, 0.28);
+  box-shadow: 0 4px 24px rgba(212, 175, 55, 0.08);
+}
+
+/* ─── Section backgrounds ────────────────────────────────────────── */
+/* Deep blue — hero sections, primary dark areas */
+.bg-section-dark {
+  background: linear-gradient(160deg, #040E35 0%, #061543 40%, #0A1E55 100%);
+  position: relative;
+}
+
+/* Royal blue — content sections, feature areas */
+.bg-section-navy {
+  background: linear-gradient(160deg, #0B2E78 0%, #0D3B8C 50%, #1048A8 100%);
+  position: relative;
+}
+
+/* ─── Subtle dot grid overlay (premium texture) ──────────────────── */
+.bg-section-dark::before,
+.bg-section-navy::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255,255,255,0.035) 1px, transparent 1px);
+  background-size: 32px 32px;
+  pointer-events: none;
+}
+
+/* ─── Section divider ────────────────────────────────────────────── */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(212, 175, 55, 0.5), transparent);
+}
+
+.section-divider-blue {
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(45, 140, 255, 0.5), transparent);
+}
+
+/* ─── Page entry animation ───────────────────────────────────────── */
+.page-enter {
+  animation: fadeUp 0.6s ease forwards;
+}
+
+/* ─── Flag wave container ────────────────────────────────────────── */
+.flag-wrap {
+  transform-origin: left center;
+  animation: flagWave 2.5s ease-in-out infinite;
+}
+
+/* ─── Glow borders ───────────────────────────────────────────────── */
+.glow-border-gold {
+  box-shadow: 0 0 0 1px rgba(212, 175, 55, 0.25), 0 0 24px rgba(212, 175, 55, 0.12);
+}
+
+.glow-border-blue {
+  box-shadow: 0 0 0 1px rgba(45, 140, 255, 0.40), 0 0 28px rgba(45, 140, 255, 0.20);
+}
+
+/* ─── Premium button ─────────────────────────────────────────────── */
+.btn-primary {
+  background: linear-gradient(135deg, #2D8CFF 0%, #1565E0 100%);
+  box-shadow: 0 4px 20px rgba(45, 140, 255, 0.35), 0 1px 0 rgba(90, 171, 255, 0.30) inset;
+  transition: all 0.25s ease;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #5AABFF 0%, #2D8CFF 100%);
+  box-shadow: 0 6px 28px rgba(45, 140, 255, 0.50), 0 1px 0 rgba(90, 171, 255, 0.40) inset;
+  transform: translateY(-1px);
+}
+
+/* ─── Hero text reveal ───────────────────────────────────────────── */
+.hero-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+/* ─── University card image ──────────────────────────────────────── */
+.uni-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* ─── Pulsing ring ───────────────────────────────────────────────── */
+@keyframes ring-pulse {
+  0%   { transform: scale(1);   opacity: 0.8; }
+  100% { transform: scale(2.4); opacity: 0;   }
+}
+
+.ring-pulse {
+  animation: ring-pulse 2s ease-out infinite;
+}
+
+/* ─── Premium card hover ─────────────────────────────────────────── */
+.card-hover {
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(45, 140, 255, 0.20), 0 0 0 1px rgba(45, 140, 255, 0.20);
+}
+
+/* ─── Radial blue spotlight ──────────────────────────────────────── */
+.blue-spotlight {
+  background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(45, 140, 255, 0.18) 0%, transparent 100%);
+  pointer-events: none;
+}
