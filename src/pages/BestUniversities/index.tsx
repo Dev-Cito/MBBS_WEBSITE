@@ -1,12 +1,8 @@
-import { Suspense, lazy } from 'react'
-import { motion } from 'framer-motion'
 import SectionHeading from '../../components/ui/SectionHeading'
 import CTARow from '../../components/ui/CTARow'
 import InquiryForm from '../../components/ui/InquiryForm'
 import CountrySection from './CountrySection'
 import { countries } from '../../data/universities'
-
-const GlobeScene = lazy(() => import('../../components/three/GlobeScene'))
 
 export default function BestUniversities() {
   return (
@@ -18,23 +14,6 @@ export default function BestUniversities() {
             title="Explore the Best Destinations for MBBS Abroad"
             subtitle="Click on a country tag on the globe to jump directly to its universities."
           />
-
-          {/* Globe */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.85 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.9, ease: 'easeOut' }}
-            className="mt-10 mx-auto"
-            style={{ height: '380px', maxWidth: '560px' }}
-          >
-            <Suspense fallback={
-              <div className="h-full flex items-center justify-center">
-                <div className="w-8 h-8 border-2 border-brand-gold border-t-transparent rounded-full animate-spin" />
-              </div>
-            }>
-              <GlobeScene />
-            </Suspense>
-          </motion.div>
 
           {/* Quick jump links */}
           <div className="flex flex-wrap justify-center gap-3 mt-8">

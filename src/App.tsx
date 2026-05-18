@@ -9,13 +9,14 @@ import StickyWhatsApp  from './components/layout/StickyWhatsApp'
 // Lazy-loaded pages for optimal performance
 const Home              = lazy(() => import('./pages/Home'))
 const WhyPruthvi        = lazy(() => import('./pages/WhyPruthvi'))
-const BestUniversities  = lazy(() => import('./pages/BestUniversities'))
 const ExpertTeam        = lazy(() => import('./pages/ExpertTeam'))
 const Observership      = lazy(() => import('./pages/Observership'))
 const Reviews           = lazy(() => import('./pages/Reviews'))
 const CountryComparison = lazy(() => import('./pages/CountryComparison'))
 const BooksBlogs        = lazy(() => import('./pages/BooksBlogs'))
 const Contact           = lazy(() => import('./pages/Contact'))
+const BestCounties  = lazy(() => import('./pages/BestCounties'))
+const BestUniversitiesDetails  = lazy(() => import('./pages/BestUniversities'))
 
 // Thin loading bar shown between page loads
 function PageLoader() {
@@ -59,7 +60,8 @@ function AppRoutes() {
           <Routes location={location} key={location.pathname}>
             <Route path="/"                   element={<AnimatedPage><Home /></AnimatedPage>} />
             <Route path="/why-pruthvi"        element={<AnimatedPage><WhyPruthvi /></AnimatedPage>} />
-            <Route path="/best-universities"  element={<AnimatedPage><BestUniversities /></AnimatedPage>} />
+            <Route path="/best-countries"  element={<AnimatedPage><BestCounties /></AnimatedPage>} />
+            <Route path="/best-countries-details"  element={<AnimatedPage><BestUniversitiesDetails /></AnimatedPage>} />
             <Route path="/expert-team"        element={<AnimatedPage><ExpertTeam /></AnimatedPage>} />
             <Route path="/observership"       element={<AnimatedPage><Observership /></AnimatedPage>} />
             <Route path="/reviews"            element={<AnimatedPage><Reviews /></AnimatedPage>} />
