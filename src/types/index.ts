@@ -61,3 +61,72 @@ export interface NavLink {
   label: string
   path: string
 }
+
+export interface CountryStatsStat {
+  value: string
+  label: string
+  icon: 'globe' | 'graduation' | 'users' | 'star'
+}
+
+export interface RecognitionSegment {
+  label: string
+  percentage: number
+  count: number
+  color: string
+}
+
+export interface TopDestination {
+  rank: number
+  countryId: string
+  name: string
+  students: string
+}
+
+export interface StudentRegion {
+  label: string
+  percentage: number
+  color: string
+}
+
+export interface SuccessMetric {
+  label: string
+  value: number
+}
+
+export interface NavItem {
+  label: string
+  href: string
+  /** When true, navigates to a dedicated route instead of an in-page hash */
+  route?: boolean
+}
+
+export interface Stat {
+  value: string
+  label: string
+}
+
+export interface Country {
+  id: string
+  name: string
+  universities: number
+  flag: string
+  features: string[]
+  description: string
+  /** Capital / representative point for globe marker (WGS84) */
+  coordinates: { lat: number; lng: number }
+}
+
+export interface ProcessStep {
+  number: string
+  title: string
+  description: string
+}
+
+export interface Review {
+  id: number
+  name: string
+  role: string
+  rating: number
+  quote: string
+  location: string
+}

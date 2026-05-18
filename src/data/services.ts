@@ -145,11 +145,10 @@ export const blogPosts: BlogPost[] = [
 
 export const navLinks: NavLink[] = [
   { label: 'Why Pruthvi', path: '/why-pruthvi' },
-  { label: 'Best University', path: '/best-universities' },
+  { label: 'Best Countries', path: '/best-countries' },
   { label: 'Expert Team', path: '/expert-team' },
   { label: 'Observership', path: '/observership' },
   { label: 'Reviews', path: '/reviews' },
-  { label: 'Country Comparison', path: '/country-comparison' },
   { label: 'Books & Blogs', path: '/books-blogs' },
   { label: 'Contact Us', path: '/contact' },
 ]
