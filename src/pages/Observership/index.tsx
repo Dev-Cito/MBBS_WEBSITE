@@ -1,9 +1,8 @@
 import { motion } from 'framer-motion'
 import { Activity, Microscope, Award, Hospital, Stethoscope } from 'lucide-react'
 import SectionHeading from '../../components/ui/SectionHeading'
+import LogoLoop from '../../components/ui/LogoLoop'
 import GlassCard from '../../components/ui/GlassCard'
-import CTARow from '../../components/ui/CTARow'
-import InquiryForm from '../../components/ui/InquiryForm'
 import surgeryImg   from '../../assets/ChatGPT Image Apr 22, 2026, 12_42_04 AM.png'
 import mriImg       from '../../assets/ChatGPT Image Apr 20, 2026, 02_41_43 AM.png'
 import microscopeImg from '../../assets/pngegg (47).png'
@@ -69,25 +68,24 @@ export default function Observership() {
         </div>
       </section>
 
-      {/* ── Highlight stats (glassmorphism) ──────────── */}
-      <section className="bg-section-dark py-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6">
-          <div className="flex flex-wrap justify-center gap-4">
-            {highlights.map(({ icon: Icon, label, delay }) => (
-              <motion.div
-                key={label}
-                initial={{ opacity: 0, scale: 0.85 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay }}
-                className="glass-gold rounded-2xl px-6 py-5 flex flex-col items-center gap-2 min-w-[140px]"
-              >
+      {/* ── Highlight stats (marquee loop) ───────────── */}
+      <section className="bg-section-dark py-16 overflow-hidden">
+        <LogoLoop
+          logos={highlights.map(({ icon: Icon, label }) => ({
+            title: label,
+            node: (
+              <div className="glass-gold rounded-2xl px-6 py-5 flex flex-col items-center gap-2 min-w-[160px]">
                 <Icon size={28} className="text-brand-gold" />
-                <span className="text-white/80 text-sm font-semibold text-center">{label}</span>
-              </motion.div>
-            ))}
-          </div>
-        </div>
+                <span className="text-white/80 text-sm font-semibold text-center whitespace-nowrap">{label}</span>
+              </div>
+            ),
+          }))}
+          speed={60}
+          direction="left"
+          gap={20}
+          fadeOut
+          fadeOutColor="#040E35"
+        />
       </section>
 
       {/* ── Program overview ──────────────────────────── */}
@@ -156,22 +154,6 @@ export default function Observership() {
                 <img src={src} alt="Partner Hospital" className="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity duration-300" />
               </motion.div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── CTA ──────────────────────────────────────────── */}
-      <section className="bg-section-dark py-20">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
-                Apply for Your <span className="gold-text">Observership Slot</span>
-              </h3>
-              <p className="text-white/60 mb-6">Limited slots available per batch. Reserve your spot now.</p>
-              <CTARow size="lg" />
-            </div>
-            <InquiryForm title="Apply for Observership" />
           </div>
         </div>
       </section>

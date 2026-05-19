@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion'
-import { Phone, MessageCircle, Mail, MapPin, Clock, Instagram, Youtube } from 'lucide-react'
+import { Phone, MessageCircle, Mail, MapPin, Clock } from 'lucide-react'
 import SectionHeading from '../../components/ui/SectionHeading'
 import InquiryForm from '../../components/ui/InquiryForm'
-import CTARow from '../../components/ui/CTARow'
+import brainVideo from '../../assets/videos/brain.mp4'
 
 const WHATSAPP = 'https://wa.me/919999999999?text=Hello%20Pruthvi%20Education%2C%20I%20am%20interested%20in%20MBBS%20Abroad.'
 
@@ -18,11 +18,23 @@ export default function Contact() {
   return (
     <main className="pt-16">
       {/* ── Hero ─────────────────────────────────────── */}
-      <section className="bg-section-navy py-20 md:py-28">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center">
+      <section className="relative py-28 md:py-40 overflow-hidden">
+        {/* Video background */}
+        <video
+          src={brainVideo}
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        {/* Branded dark gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#040E35]/85 via-[#061543]/75 to-[#040E35]/95" />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 text-center">
           <SectionHeading
             title="Contact Us"
-            subtitle="We're just one message away. Talk to our expert counselors today — for free."
+            subtitle="We're just one message away. Talk to our expert counselors today for free."
           />
         </div>
       </section>
@@ -30,13 +42,12 @@ export default function Contact() {
       {/* ── Main contact section ─────────────────────── */}
       <section className="bg-section-dark py-20 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <h3 className="text-3xl md:text-4xl font-bold text-white text-center mb-12">
+            Get in <span className="gold-text">Touch</span>
+          </h3>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
-            {/* Left: contact info + CTA */}
+            {/* Left: contact info */}
             <div>
-              <h3 className="text-2xl font-bold text-white mb-8">
-                Get in <span className="gold-text">Touch</span>
-              </h3>
-
               {/* Contact details */}
               <div className="space-y-4 mb-10">
                 {contactInfo.map(({ icon: Icon, label, value, href }) => (
@@ -61,17 +72,7 @@ export default function Contact() {
                 ))}
               </div>
 
-              {/* Social links */}
-              <div className="flex gap-3 mb-10">
-                <a href="#" className="flex items-center gap-2 glass rounded-xl px-4 py-3 text-white/60 hover:text-brand-gold transition-colors text-sm font-medium">
-                  <Instagram size={16} /> Instagram
-                </a>
-                <a href="#" className="flex items-center gap-2 glass rounded-xl px-4 py-3 text-white/60 hover:text-brand-gold transition-colors text-sm font-medium">
-                  <Youtube size={16} /> YouTube
-                </a>
-              </div>
 
-              <CTARow size="lg" />
             </div>
 
             {/* Right: inquiry form */}

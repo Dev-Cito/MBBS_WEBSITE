@@ -1,9 +1,8 @@
 import { motion } from 'framer-motion'
 import { Star, Quote } from 'lucide-react'
 import SectionHeading from '../../components/ui/SectionHeading'
+import bodyMusclesVideo from '../../assets/videos/body muscles.mp4'
 import GlassCard from '../../components/ui/GlassCard'
-import CTARow from '../../components/ui/CTARow'
-import InquiryForm from '../../components/ui/InquiryForm'
 
 const reviews = [
   { name: 'Parent — Russia Batch 2023', rating: 5, text: 'Pruthvi Education was with us every single step. From the NEET counselling to airport pickup in Russia, they never left our side. My son is now thriving in his 2nd year at NSU. Zero regrets.' },
@@ -18,8 +17,17 @@ export default function Reviews() {
   return (
     <main className="pt-16">
       {/* ── Hero ───────────────────────────────────────── */}
-      <section className="bg-section-navy py-20 md:py-28">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center">
+      <section className="relative py-20 md:py-28 overflow-hidden">
+        <video
+          src={bodyMusclesVideo}
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#040E35]/85 via-[#061543]/75 to-[#040E35]/95" />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 text-center">
           <SectionHeading
             title="What Students & Parents Say About Us"
             subtitle="Real voices. Real journeys. Real results."
@@ -105,21 +113,6 @@ export default function Reviews() {
           <p className="text-white/30 text-center text-xs mt-3">
             Student photos will be added here — please provide the image files.
           </p>
-        </div>
-      </section>
-
-      {/* ── CTA ─────────────────────────────────────── */}
-      <section className="bg-section-dark py-16">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
-                Join 650+ Students Who <span className="gold-text">Trust Pruthvi</span>
-              </h3>
-              <CTARow size="lg" />
-            </div>
-            <InquiryForm title="Start Your Journey" />
-          </div>
         </div>
       </section>
     </main>

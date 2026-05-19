@@ -1,6 +1,4 @@
 import SectionHeading from '../../components/ui/SectionHeading'
-import CTARow from '../../components/ui/CTARow'
-import InquiryForm from '../../components/ui/InquiryForm'
 import CountrySection from './CountrySection'
 import { countries } from '../../data/universities'
 
@@ -43,25 +41,6 @@ export default function BestUniversities() {
           <div className="section-divider" />
         </div>
       ))}
-
-      {/* ── CTA ───────────────────────────────────────────── */}
-      <section className="bg-section-dark py-20">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
-                Not Sure Which Country <span className="gold-text">Is Right for You?</span>
-              </h3>
-              <p className="text-white/60 leading-relaxed mb-6">
-                Our experts will analyse your NEET score, budget, and preferences to recommend
-                the perfect university within 24 hours.
-              </p>
-              <CTARow size="lg" />
-            </div>
-            <InquiryForm title="Get University Recommendation" />
-          </div>
-        </div>
-      </section>
     </main>
   )
 }

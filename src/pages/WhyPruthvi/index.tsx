@@ -7,8 +7,6 @@ import SectionHeading from '../../components/ui/SectionHeading'
 import { TypingAnimation } from '../../components/ui/typing-animation'
 import CircularText from '../../components/ui/CircularText'
 import GlassCard from '../../components/ui/GlassCard'
-import CTARow from '../../components/ui/CTARow'
-import InquiryForm from '../../components/ui/InquiryForm'
 import twoHandsImg from '../../assets/2 hands.png'
 import companyLogo from '../../assets/company logo.png'
 import apolloImg from '../../assets/appollo.png'
@@ -81,22 +79,23 @@ export default function WhyPruthvi() {
       </section>
 
       {/* ── End-to-End Services ───────────────────────── */}
-      <section className="bg-section-dark py-20 md:py-28">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+      <section className="bg-section-dark py-20 md:py-28 relative overflow-hidden">
+        {/* Background image */}
+        <img
+          src={twoHandsImg}
+          alt=""
+          aria-hidden
+          className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none"
+          style={{ opacity: 0.07, filter: 'grayscale(0.2) brightness(1.3)' }}
+        />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
           {/* Section title */}
           <div className="text-center mb-14">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="inline-flex items-center gap-3 mb-4"
-            >
-              <img src={twoHandsImg} alt="" className="h-14 w-auto" />
-            </motion.div>
             <SectionHeading
               title="We Provide End to End Service"
-              subtitle="From the moment you decide to study abroad, until you receive your MD — Pruthvi is with you."
+              subtitle="From the moment you decide to study abroad, until you receive your MD 
+              Pruthvi is with you."
             />
           </div>
 
@@ -116,28 +115,6 @@ export default function WhyPruthvi() {
                 </div>
               </GlassCard>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── CTA + Inquiry ─────────────────────────────── */}
-      <section className="bg-section-navy py-20 md:py-24">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
-                Ready to Begin Your <span className="gold-text">MBBS Journey?</span>
-              </h3>
-              <p className="text-white/60 leading-relaxed mb-6">
-                Every student's situation is unique. Book a free counselling session and let our
-                experts guide you to the right university, in the right country, at the right budget.
-              </p>
-              <p className="italic text-brand-gold font-medium text-lg mb-8">
-                "Your dream is our responsibility."
-              </p>
-              <CTARow size="lg" />
-            </div>
-            <InquiryForm />
           </div>
         </div>
       </section>

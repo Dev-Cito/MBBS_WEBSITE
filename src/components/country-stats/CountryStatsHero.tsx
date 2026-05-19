@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import heroGlobeImg from '../../assets/country-stats-hero-globe.png'
 import heroGodImg from '../../assets/hero-god.png'
-import heroPillarImg from '../../assets/vecteezy_swirling-stone.png'
+import heroPillarImg from '../../assets/vecteezy_swirling-stone.webp'
 import CountryStatsStatsBar from './CountryStatsStatsBar'
 
 const MOBILE_BG_IMG =

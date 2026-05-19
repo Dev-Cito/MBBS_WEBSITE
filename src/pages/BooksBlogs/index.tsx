@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion'
 import { Download, ArrowRight } from 'lucide-react'
 import SectionHeading from '../../components/ui/SectionHeading'
+import handMusclesVideo from '../../assets/videos/hand muscles.mp4'
 import GlassCard from '../../components/ui/GlassCard'
-import CTARow from '../../components/ui/CTARow'
 import { blogPosts } from '../../data/services'
 
 const books = [
@@ -22,11 +22,20 @@ export default function BooksBlogs() {
   return (
     <main className="pt-16">
       {/* ── Hero ─────────────────────────────────────── */}
-      <section className="bg-section-navy py-20 md:py-28">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center">
+      <section className="relative py-20 md:py-28 overflow-hidden">
+        <video
+          src={handMusclesVideo}
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#040E35]/85 via-[#061543]/75 to-[#040E35]/95" />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 text-center">
           <SectionHeading
             title="Books & Blogs"
-            subtitle="Download free resources and read expert-written, SEO-optimised content on MBBS abroad — curated by the Pruthvi Education team."
+            subtitle="Download free resources and read expert-written, SEO-optimised content on MBBS abroad curated by the Pruthvi Education team."
           />
         </div>
       </section>
@@ -107,17 +116,6 @@ export default function BooksBlogs() {
           <p className="text-white/25 text-center text-xs mt-6">
             Full blog articles will be added once the content is provided. The above represents the planned SEO content strategy.
           </p>
-        </div>
-      </section>
-
-      {/* ── CTA ─────────────────────────────────────── */}
-      <section className="bg-section-dark py-16 text-center">
-        <div className="max-w-2xl mx-auto px-4">
-          <h3 className="text-2xl font-bold text-white mb-3">
-            Ready to Start Your <span className="gold-text">MBBS Journey?</span>
-          </h3>
-          <p className="text-white/50 mb-6">Download the resources, read the blogs — then talk to our experts.</p>
-          <CTARow center size="lg" />
         </div>
       </section>
     </main>
